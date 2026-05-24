@@ -385,9 +385,6 @@
       data.append('entry.229802432', document.getElementById('upiId').value);
       data.append('entry.952379733', 'I agree to the Terms and Conditions below');
       
-      // Required for multi-page Google Forms to accept fields from Section 2
-      data.append('pageHistory', '0,1');
-
       const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdjm9vCCquEThTsHh_IS9Sr45lLD58nxot7WqAk0MV8cX5vpQ/formResponse';
 
       // Send data to Google Forms silently using no-cors
