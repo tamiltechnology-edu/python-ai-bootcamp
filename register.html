@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Python AI Assistant Bootcamp</title>
+  <meta name="description" content="Secure your spot in the 4-Hour Live Python AI Assistant Bootcamp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Animated Background Mesh */
+    body { 
+      background-color: #0f172a;
+      background-image: 
+        radial-gradient(at 40% 20%, hsla(258,100%,74%,0.15) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, hsla(189,100%,56%,0.15) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(333,100%,70%,0.15) 0px, transparent 50%);
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      padding: 40px 20px; 
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Glassmorphism Container */
+    .split-layout { 
+      display: flex; 
+      width: 100%; 
+      max-width: 1100px; 
+      background: rgba(255, 255, 255, 0.95); 
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 28px; 
+      overflow: hidden; 
+      box-shadow: 0 25px 80px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.5); 
+      min-height: 750px; 
+    }
+
+    /* Left Panel: Deep Dark Premium */
+    .split-left { 
+      flex: 1; 
+      background: linear-gradient(145deg, #020617, #0f172a); 
+      color: #fff; 
+      padding: 60px; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      position: relative; 
+      overflow: hidden; 
+    }
+    .split-left::before { 
+      content: ''; 
+      position: absolute; 
+      top: -30%; left: -30%; 
+      width: 160%; height: 160%; 
+      background: radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 60%); 
+      pointer-events: none; 
+      z-index: 0; 
+      animation: pulseGlow 8s ease-in-out infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+    .split-left > * { position: relative; z-index: 1; }
+    
+    /* Right Panel: Clean Light Form */
+    .split-right { 
+      flex: 1.2; 
+      padding: 60px; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      overflow-y: auto; 
+    }
+    
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    .brand img { height: 36px; filter: brightness(0) invert(1); }
+    .brand span { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
+    
+    /* Gradient Typography */
+    .left-content h1 { 
+      font-size: 2.8rem; 
+      font-weight: 800; 
+      line-height: 1.1; 
+      margin-bottom: 20px; 
+      letter-spacing: -1px;
+    }
+    .left-content h1 span { 
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+    .left-content p { font-size: 1.05rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 40px; }
+    
+    .features { display: flex; flex-direction: column; gap: 24px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 18px; transition: transform 0.3s; }
+    .feature-item:hover { transform: translateX(5px); }
+    .feature-icon { 
+      width: 44px; height: 44px; 
+      border-radius: 14px; 
+      background: rgba(255,255,255,0.05); 
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center; 
+      color: #a855f7; 
+      font-size: 1.2rem; 
+      flex-shrink: 0; 
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .feature-text h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #f8fafc; }
+    .feature-text p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+    .split-right .register-header { text-align: left; margin-bottom: 36px; }
+    .split-right .register-header h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; color: #0f172a; letter-spacing: -0.5px; }
+    .split-right .register-header p { font-size: 1rem; color: #64748b; }
+
+    .back-link { 
+      display: inline-flex; align-items: center; gap: 8px; 
+      color: #94a3b8; font-weight: 600; font-size: 0.9rem; 
+      margin-bottom: 32px; transition: all 0.3s; 
+    }
+    .back-link:hover { color: #0f172a; transform: translateX(-4px); }
+
+    /* Modern Inputs */
+    .custom-register-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.85rem; font-weight: 700; color: #334155; }
+    .input-wrapper { position: relative; display: flex; align-items: center; }
+    .input-wrapper i { position: absolute; left: 16px; color: #94a3b8; font-size: 1.1rem; transition: color 0.3s; }
+    .input-wrapper input, .input-wrapper select { 
+      width: 100%; 
+      padding: 16px 16px 16px 48px; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 12px; 
+      font-size: 0.95rem; 
+      font-family: inherit; 
+      color: #0f172a; 
+      background: #f8fafc; 
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    }
+    .input-wrapper input:focus, .input-wrapper select:focus { 
+      outline: none; 
+      border-color: #8b5cf6; 
+      background: #fff; 
+      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15); 
+    }
+    .input-wrapper input:focus + i, .input-wrapper select:focus + i { color: #8b5cf6; }
+
+    /* Payment Section */
+    .payment-section { 
+      margin-top: 24px; padding: 28px; 
+      background: linear-gradient(to bottom right, #f8fafc, #f1f5f9); 
+      border: 1px solid #e2e8f0; 
+      border-radius: 16px; 
+      text-align: center; 
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.8);
+    }
+    .payment-section h4 { margin-bottom: 8px; color: #0f172a; font-size: 1.2rem; font-weight: 800; }
+    .qr-image { 
+      width: 180px; height: 180px; 
+      margin: 0 auto 24px; 
+      border-radius: 16px; 
+      object-fit: cover; 
+      border: 4px solid #fff; 
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+      display: block; 
+      animation: gentlePulse 3s infinite ease-in-out;
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+      50% { transform: scale(1.02); box-shadow: 0 15px 35px rgba(139,92,246,0.2); }
+    }
+
+    /* Submit Button */
+    .btn-submit-form { 
+      display: flex; align-items: center; justify-content: center; gap: 10px; 
+      background: linear-gradient(135deg, #0f172a, #1e293b); 
+      color: #fff; 
+      padding: 18px; 
+      border: none; 
+      border-radius: 14px; 
+      font-weight: 700; 
+      font-size: 1.05rem; 
+      cursor: pointer; 
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+      margin-top: 12px; 
+      box-shadow: 0 10px 20px rgba(15,23,42,0.15);
+    }
+    .btn-submit-form:hover { 
+      background: linear-gradient(135deg, #8b5cf6, #ec4899); 
+      transform: translateY(-3px); 
+      box-shadow: 0 15px 30px rgba(139,92,246,0.3); 
+    }
+    .form-footer-note { text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 16px; }
+    .form-footer-note i { color: #10b981; }
+
+    /* Success Screen */
+    #successScreen { display: none; text-align: center; padding: 60px 20px; }
+    .success-icon { font-size: 5rem; color: #10b981; margin-bottom: 24px; filter: drop-shadow(0 10px 20px rgba(16,185,129,0.2)); }
+    #successScreen h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; color: #0f172a; }
+    #successScreen p { color: #64748b; margin-bottom: 40px; line-height: 1.7; font-size: 1.1rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .btn-home { 
+      display: inline-flex; align-items: center; gap: 10px; 
+      background: #0f172a; color: #fff; 
+      padding: 16px 36px; border-radius: 12px; 
+      font-weight: 700; transition: all 0.3s; 
+      text-decoration: none;
+    }
+    .btn-home:hover { background: #8b5cf6; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(139,92,246,0.2); }
+
+    @media (max-width: 992px) {
+      .split-layout { flex-direction: column; min-height: auto; }
+      .split-left { padding: 40px 24px; border-radius: 28px 28px 0 0; }
+      .split-right { padding: 40px 24px; }
+      .left-content h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="split-layout">
+    <!-- Left Panel -->
+    <div class="split-left">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Tamil Technology" />
+        <span>Tamil Technology</span>
+      </div>
+      <div class="left-content">
+        <h1>Join the <span>AI Revolution</span> Today.</h1>
+        <p>Stop just using AI—learn how to build it. Secure your spot in our exclusive 4-hour live bootcamp and walk away with your own Python AI Assistant.</p>
+        
+        <div class="features">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="feature-text">
+              <h4>Saturday, May 23, 2026</h4>
+              <p>09:00 AM – 01:15 PM</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-globe"></i></div>
+            <div class="feature-text">
+              <h4>Online (Google Meet)</h4>
+              <p>Taught in Tamil & English</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+            <div class="feature-text">
+              <h4>Verified Certificate</h4>
+              <p>Upon final project submission</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel (Form) -->
+    <div class="split-right">
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      
+      <div id="formScreen">
+        <div class="register-header">
+          <h2>Secure Your Spot</h2>
+          <p>Fill out your details and complete the payment to register.</p>
+        </div>
+
+        <form class="custom-register-form" id="registerForm" onsubmit="handleRegistration(event)">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Krishanth" required />
+            </div>
+          </div>
+
+          <div class="form-row" style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1;">
+              <label for="emailAddr">Email Address *</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="emailAddr" name="emailAddr" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label for="age">Age *</label>
+              <div class="input-wrapper">
+                <i class="fas fa-calendar-alt"></i>
+                <input type="number" id="age" name="age" placeholder="e.g. 21" required min="10" max="100" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="whatsappNum">WhatsApp Number *</label>
+            <div class="input-wrapper">
+              <i class="fab fa-whatsapp"></i>
+              <input type="tel" id="whatsappNum" name="whatsappNum" placeholder="e.g. 9876543210" required />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="currentStatus">Current Status *</label>
+            <div class="input-wrapper">
+              <i class="fas fa-user-graduate"></i>
+              <select id="currentStatus" name="currentStatus" required style="width:100%; padding:14px 14px 14px 44px; border:1px solid var(--border); border-radius:10px; font-size:0.9rem; font-family:var(--font); color:var(--dark); background:var(--light-gray); appearance:none;">
+                <option value="" disabled selected>Select your status...</option>
+                <option value="High School Student">High School Student</option>
+                <option value="College Student">College Student</option>
+                <option value="Diploma Student">Diploma Student</option>
+                <option value="Working Professional">Working Professional</option>
+                <option value="Other">Other</option>
+              </select>
+              <i class="fas fa-chevron-down" style="position:absolute; right:16px; left:auto; pointer-events:none;"></i>
+            </div>
+          </div>
+
+          <div class="payment-section" style="margin-top:20px; padding:24px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; text-align:center;">
+            <h4 style="margin-bottom:8px; color:var(--dark); font-size:1.1rem; font-weight:800;">Scan & Pay ₹49</h4>
+            <p style="font-size:0.8rem; color:var(--gray); margin-bottom:16px;">Complete your payment using any UPI app</p>
+            <img src="assets/QR.jpeg" alt="Payment QR Code" style="width:180px; height:180px; margin:0 auto 20px; border-radius:12px; object-fit:cover; border:2px solid #cbd5e1; display:block;" onerror="this.style.display='none'" />
+            
+            <div class="form-group" style="text-align:left;">
+              <label for="upiId">UPI Transaction ID (12 Digits) *</label>
+              <div class="input-wrapper">
+                <i class="fas fa-receipt"></i>
+                <input type="text" id="upiId" name="upiId" placeholder="e.g. 123456789012" minlength="12" maxlength="12" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="terms-box" style="margin-top:20px; padding:16px; background:#f1f5f9; border:1px solid #cbd5e1; border-radius:10px; font-size:0.8rem; color:var(--dark);">
+            <p style="font-weight:700; margin-bottom:8px;">Terms & Conditions Agreement</p>
+            <ol style="padding-left:16px; margin-bottom:12px; color:var(--gray); display:flex; flex-direction:column; gap:6px;">
+              <li><strong>Device:</strong> I understand I must use a Laptop/PC with an internet connection for this workshop (coding on a mobile phone is not supported).</li>
+              <li><strong>Certification:</strong> I understand that to receive the Verified Certificate, I must attend the live session and submit the project.</li>
+              <li><strong>Refund Policy:</strong> As this is a limited-seat digital event, the ₹49 registration fee is non-refundable.</li>
+            </ol>
+            <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer; font-weight:600; color:var(--dark);">
+              <input type="checkbox" required style="margin-top:3px;" />
+              <span>I agree to the Terms and Conditions above *</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit-form" id="submitBtn" style="margin-top:24px;">
+            Confirm Registration — ₹49 <i class="fas fa-check-circle"></i>
+          </button>
+          <p class="form-footer-note"><i class="fas fa-lock"></i> Secured by Tamil Technology</p>
+        </form>
+      </div>
+
+      <div id="successScreen">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2>Registration Successful!</h2>
+        <p>Registration Received! We will verify your transaction ID and email you the Google Classroom link soon.</p>
+        <a href="index.html" class="btn-home">Return to Home <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function handleRegistration(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+      btn.disabled = true;
+
+      // Google Forms entry IDs
+      const data = new URLSearchParams();
+      data.append('entry.1400671553', document.getElementById('fullName').value);
+      data.append('entry.366770556', document.getElementById('emailAddr').value);
+      data.append('entry.2118145474', document.getElementById('age').value);
+      data.append('entry.1179385446', document.getElementById('whatsappNum').value);
+      data.append('entry.293813934', document.getElementById('currentStatus').value);
+      data.append('entry.229802432', document.getElementById('upiId').value);
+      data.append('entry.952379733', 'I agree to the Terms and Conditions below');
+      
+      // Required for multi-page Google Forms to accept fields from Section 2
+      data.append('pageHistory', '0,1');
+
+      const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdjm9vCCquEThTsHh_IS9Sr45lLD58nxot7WqAk0MV8cX5vpQ/formResponse';
+
+      // Send data to Google Forms silently using no-cors
+      fetch(googleFormURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data.toString()
+      }).then(() => {
+        // Show success screen
+        document.getElementById('formScreen').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+      }).catch(err => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert('A network error occurred. Please try again.');
+      });
+    }
+  </script>
+</body>
+</html>

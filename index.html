@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python AI Assistant Bootcamp - Tamil Technology</title>
+  <meta name="description" content="Join the exclusive 4-Hour Live Python AI Assistant Bootcamp in Tamil & English. Learn Python Basics, API Integration, and Generative AI. No prior coding experience required!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo.png" alt="Tamil Technology" class="logo-img" />
+        <span class="logo-text">Tamil Technology</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">Home</a>
+        <a href="#curriculum" class="nav-link">Curriculum</a>
+        <a href="#perks" class="nav-link">Why Join</a>
+        <a href="#instructor" class="nav-link">Instructor</a>
+        <a href="#enroll" class="nav-link">Enroll</a>
+      </div>
+      <a href="register.html" class="nav-cta" id="navRegisterBtn">Register</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="about">
+    <!-- Floating Tech Logos -->
+    <div class="floating-logo html-logo">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+    </div>
+    <div class="floating-logo css-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" alt="Google Colab" style="width: 50px; height: 50px;">
+    </div>
+    <div class="floating-logo github-logo">
+      <i class="fas fa-robot" style="font-size:3rem; color:#ec4899;"></i>
+    </div>
+    <div class="floating-logo netlify-logo">
+      <i class="fas fa-brain" style="font-size:3rem; color:#8b5cf6;"></i>
+    </div>
+
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        Build Your First AI Assistant<br />
+        <span class="hero-underline">with Python</span>
+      </h1>
+      <p class="hero-subtitle-tamil">Stop just using AI—learn how to code it. Live 4-Hour Bootcamp.</p>
+      <p class="hero-desc">
+        Inspired by Ivy League computer science curriculums. Taught in Tamil & English.<br />
+        No prior coding experience required!
+      </p>
+
+      <!-- Info Boxes -->
+      <div class="info-boxes">
+        <div class="info-box highlight-box">
+          <span class="info-label">Date of Bootcamp</span>
+          <span class="info-value">May 30, 2026</span>
+        </div>
+        <div class="info-box">
+          <span class="info-label">Time for Live Class</span>
+          <span class="info-value">09:00 AM – 01:15 PM</span>
+        </div>
+        <div class="info-box">
+          <span class="info-label">Platform</span>
+          <span class="info-value" style="display:flex;align-items:center;justify-content:center;gap:6px;">
+            <img src="https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v1/web-96dp/logo_meet_2020q4_color_2x_web_96dp.png" alt="Google Meet" style="width:18px;height:18px;">
+            Google Meet
+          </span>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="hero-countdown">
+        <p class="countdown-label">Bootcamp starts in:</p>
+        <div class="countdown-timer" id="countdownTimer">
+          <div class="time-box">
+            <span class="time-value" id="days">00</span>
+            <span class="time-text">Days</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-text">Hours</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-text">Mins</span>
+          </div>
+          <div class="time-box">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-text">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="register.html" class="btn-primary" id="heroRegisterBtn">Register Now — ₹49</a>
+        <button class="btn-secondary" id="heroDownloadSyllabusBtn" onclick="downloadSyllabus()">
+          <i class="fas fa-download"></i> Download Syllabus
+        </button>
+      </div>
+    </div>
+
+    <!-- Gradient + Video -->
+    <div class="hero-gradient-section">
+      <div class="video-wrapper">
+        <iframe
+          id="bootcampVideo"
+          src="https://www.youtube.com/embed/4Pz9ZTbcSF0"
+          title="Web Development Bootcamp Preview"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <a href="#enroll" class="btn-primary" id="heroRegisterBtn2">Reserve Your Spot Now</a>
+    </div>
+  </section>
+
+  <!-- WHAT YOU SHOULD KNOW -->
+  <section class="prereq-section">
+    <div class="container">
+      <div class="prereq-card">
+        <div class="prereq-pin">📌</div>
+        <h3>What You Should Know</h3>
+        <div class="prereq-grid">
+          <div class="prereq-item">
+            <h4>No Coding Experience Needed</h4>
+            <p>This bootcamp is designed for absolute beginners. We start from zero and build step by step.</p>
+          </div>
+          <div class="prereq-item">
+            <h4>Basic Computer Skills</h4>
+            <p>If you can use a browser, type on a keyboard, and create folders — you're ready to go!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARN LIVE SECTION -->
+  <section class="learn-live-section">
+    <div class="container">
+      <h2 class="learn-live-heading">Learn <span>LIVE</span> from your instructor with<br />hands-on practice</h2>
+      <p class="learn-live-sub">With live sessions, expert guidance, and hands-on problem-solving, you'll be learning from the best to become your best.</p>
+      <div class="live-features-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="live-feature-card">
+          <h4>Live Interactive Sessions</h4>
+          <p>Join live sessions, ask questions, and get instant feedback. Learning made truly interactive.</p>
+        </div>
+        <div class="live-feature-card">
+          <h4>Study Reference Materials</h4>
+          <p>Reinforce what you've learned with premium study reference materials and documentation after the session.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY JOIN SECTION -->
+  <section class="why-section" id="perks">
+    <div class="container">
+      <div class="why-layout">
+        <div class="why-left">
+          <h2 class="section-heading">Why Join This<br />4-Hour Live<br />Bootcamp?</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card" id="perk1">
+            <div class="why-icon" style="background:#e8f4fd;"><i class="fab fa-python" style="color:#3b82f6;"></i></div>
+            <h3>Python Basics from Scratch</h3>
+            <p>Master Python fundamentals, variables, and control flow.</p>
+          </div>
+          <div class="why-card" id="perk2">
+            <div class="why-icon" style="background:#fce4ec;"><i class="fas fa-network-wired" style="color:#e91e63;"></i></div>
+            <h3>API Integration & JSON</h3>
+            <p>Fetch real-world data and parse JSON structures programmatically.</p>
+          </div>
+          <div class="why-card" id="perk3">
+            <div class="why-icon" style="background:#fff8e1;"><i class="fas fa-brain" style="color:#f59e0b;"></i></div>
+            <h3>Generative AI via Code</h3>
+            <p>Authenticate and connect to Gemini AI using Python and APIs.</p>
+          </div>
+          <div class="why-card" id="perk4">
+            <div class="why-icon" style="background:#e8f5e9;"><i class="fas fa-certificate" style="color:#22c55e;"></i></div>
+            <h3>Verified Certificate</h3>
+            <p>Complete a final project to earn your verified certificate of completion.</p>
+          </div>
+          <div class="why-card" id="perk5">
+            <div class="why-icon" style="background:#f3e8ff;"><i class="fas fa-terminal" style="color:#8b5cf6;"></i></div>
+            <h3>Build an AI Chatbot</h3>
+            <p>Develop an interactive Command-Line Chatbot as your final project.</p>
+          </div>
+          <div class="why-card" id="perk6">
+            <div class="why-icon" style="background:#fce4ec;"><i class="fas fa-chalkboard-teacher" style="color:#e91e63;"></i></div>
+            <h3>Ivy League Inspired</h3>
+            <p>Taught in Tamil & English, inspired by top computer science curriculums.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE TIMELINE SECTION -->
+  <section class="schedule-section" id="schedule" style="padding: 80px 0; background: #fafafa;">
+    <div class="container">
+      <h2 class="section-heading center">Bootcamp Live Schedule</h2>
+      <p class="section-desc center">A fast-paced, highly structured 4-hour live session to take you from basics to building your first AI Assistant.</p>
+      
+      <div class="timeline" style="max-width: 800px; margin: 40px auto; position: relative;">
+        <!-- Timeline line -->
+        <div style="position: absolute; left: 24px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, #8b5cf6, #ec4899); border-radius: 3px;"></div>
+        
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #8b5cf6; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #8b5cf6; margin-bottom: 4px; font-weight: 700;">[09:00 AM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Lecture 0 on Meet Link 1 (Python Engine)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #f59e0b; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #f59e0b; margin-bottom: 4px; font-weight: 700;">[10:00 AM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Drop Meet Link 2 in Chat ➔ 10-Min Break & Room Switch</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #ec4899; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #ec4899; margin-bottom: 4px; font-weight: 700;">[10:10 AM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Lecture 1 on Meet Link 2 (APIs & JSON)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #3b82f6; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #3b82f6; margin-bottom: 4px; font-weight: 700;">[11:10 AM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Drop Meet Link 3 in Chat ➔ 10-Min Break & Room Switch</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #8b5cf6; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #8b5cf6; margin-bottom: 4px; font-weight: 700;">[11:20 AM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Lecture 2 on Meet Link 3 (LLM Theory, API Security, & Coding)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #22c55e; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #22c55e; margin-bottom: 4px; font-weight: 700;">[12:20 PM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Stay on Link 3 ➔ 10-Min Break (Students open Problem Set 0)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #ef4444; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #ef4444; margin-bottom: 4px; font-weight: 700;">[12:30 PM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Start Live Lab (Code, Debug Errors via Screen-Share, Submit Custom Form)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 24px;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #fff; border: 4px solid #eab308; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #eab308; margin-bottom: 4px; font-weight: 700;">[01:10 PM]</h4>
+          <p style="font-weight: 600; color: #0f172a; margin-bottom: 4px;">Video Testimonials Segment</p>
+          <p style="font-size: 0.85rem; color: #64748b; font-style: italic;">Turn cameras on for a quick YouTube clip! (Participation is completely optional)</p>
+        </div>
+
+        <div class="timeline-item" style="position: relative; padding-left: 60px; margin-bottom: 0;">
+          <div style="position: absolute; left: 16px; top: 0; width: 19px; height: 19px; background: #1e293b; border: 4px solid #1e293b; border-radius: 50%; z-index: 2;"></div>
+          <h4 style="color: #1e293b; margin-bottom: 4px; font-weight: 700;">[01:15 PM]</h4>
+          <p style="font-weight: 600; color: #0f172a;">Hard Sign-off</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENROLLMENT / PRICING SECTION -->
+  <section class="enroll-section" id="enroll">
+    <div class="container" style="position: relative; z-index: 1;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
+        <h2 style="font-size: 2.8rem; font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 16px; letter-spacing: -1px;">Secure Your Spot <br><span style="background: linear-gradient(135deg, #4f46e5, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Before Seats Fill Up!</span></h2>
+        <p style="font-size: 1.1rem; color: var(--gray); line-height: 1.6;">Don't miss out on this exclusive 4-hour live coding bootcamp. Enrollment is now open, start your AI developer journey today!</p>
+      </div>
+
+      <div class="enroll-layout">
+        <!-- Left: Info + Benefit Cards -->
+        <div class="enroll-left">
+          <div class="enroll-info-boxes">
+            <div class="enroll-info active">
+              <span class="enroll-info-label">DATE OF BOOTCAMP</span>
+              <span class="enroll-info-value">May 30, 2026</span>
+            </div>
+            <div class="enroll-info">
+              <span class="enroll-info-label">Time for Live Class</span>
+              <span class="enroll-info-value">09:00 AM – 01:15 PM</span>
+            </div>
+            <div class="enroll-info">
+              <span class="enroll-info-label">Live Class Duration</span>
+              <span class="enroll-info-value">4.25 Hours</span>
+            </div>
+          </div>
+
+          <div class="benefit-grid">
+            <div class="benefit-card blue">
+              <div class="benefit-icon"><i class="fab fa-python"></i></div>
+              <span>Python Basics from Scratch</span>
+            </div>
+            <div class="benefit-card orange">
+              <div class="benefit-icon"><i class="fas fa-network-wired"></i></div>
+              <span>API Integration & JSON</span>
+            </div>
+            <div class="benefit-card green">
+              <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+              <span>Connect to Generative AI</span>
+            </div>
+            <div class="benefit-card pink">
+              <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+              <span>Verified Certificate of Completion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Pricing Card -->
+        <div class="enroll-right">
+          <div class="pricing-card" id="pricingCard">
+            <h3 class="pricing-title">Full Access Plan</h3>
+            <div class="pricing-display">
+              <span class="price-old">₹499</span>
+              <span class="price-new">₹49/-</span>
+              <span class="price-badge">Offer Price</span>
+            </div>
+            <ul class="pricing-list">
+              <li><i class="fas fa-check"></i> One Time Payment</li>
+              <li><i class="fas fa-check"></i> Study Reference Materials</li>
+              <li><i class="fas fa-check"></i> <img src="https://fonts.gstatic.com/s/i/productlogos/meet_2020q4/v1/web-96dp/logo_meet_2020q4_color_2x_web_96dp.png" alt="Meet" style="width:18px;height:18px;vertical-align:middle;margin:0 4px;"> Live Class</li>
+              <li><i class="fas fa-check"></i> Verified Certificate</li>
+              <li><i class="fas fa-check"></i> <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png" alt="Classroom" style="width:18px;height:18px;vertical-align:middle;margin:0 4px;"> Google Classroom Access</li>
+            </ul>
+            <a href="register.html" class="btn-buy" id="buyNowBtn">Buy Now — ₹49</a>
+            <div class="social-proof">
+              <div class="avatars">
+                <span class="avatar-circle" style="background:#f59e0b;">K</span>
+                <span class="avatar-circle" style="background:#3b82f6;">A</span>
+                <span class="avatar-circle" style="background:#e91e63;">S</span>
+                <span class="avatar-circle" style="background:#22c55e;">R</span>
+                <span class="avatar-circle count">+100</span>
+              </div>
+              <span class="social-text">Already enrolled for this workshop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL LEARN (CURRICULUM) -->
+  <section class="curriculum-section" id="curriculum">
+    <div class="container">
+      <h2 class="section-heading">What you'll learn?</h2>
+      <p class="section-desc">Build your foundation in programming. Master Python, learn to interact with APIs, and develop the skills to build AI assistants — taught in Tamil & English.</p>
+
+      <div class="curriculum-layout">
+        <!-- Left: Learning Style -->
+        <div class="curriculum-left">
+          <div class="learn-style-item">
+            <div class="learn-style-icon yellow"><i class="fas fa-lightbulb"></i></div>
+            <div>
+              <h4>Concept Explanation</h4>
+              <p>No jargon, just clear, easy-to-grasp explanations to help you learn faster.</p>
+            </div>
+          </div>
+          <div class="learn-style-item">
+            <div class="learn-style-icon orange"><i class="fas fa-play-circle"></i></div>
+            <div>
+              <h4>Live Coding</h4>
+              <p>Real-time live sessions where we code, solve, and build projects together.</p>
+            </div>
+          </div>
+          <div class="learn-style-item">
+            <div class="learn-style-icon red"><i class="fas fa-comments"></i></div>
+            <div>
+              <h4>Q&amp;A with Instructor</h4>
+              <p>Quick clear breakdowns of every concept, no fluff, just what you need.</p>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="curriculum-cta">
+            <button class="btn-outline-dark" id="viewCurrBtn" onclick="openCurriculumModal()">
+              <i class="fas fa-list-ul"></i> View Full Curriculum
+            </button>
+            <button class="btn-outline-dark" id="downloadSyllabusBtn" onclick="downloadSyllabus()">
+              <i class="fas fa-download"></i> Download Syllabus
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Modules -->
+        <div class="curriculum-right">
+          <!-- Module 1 -->
+          <div class="module-block">
+            <div class="module-header">
+              <span class="module-label">Lecture 0</span>
+              <h3 class="module-title">The Engine (Python Fundamentals)</h3>
+              <p class="module-tamil">பைதான் அடிப்படைகள்</p>
+              <span class="module-lessons"><i class="far fa-file-alt"></i> 4 Topics + Practical</span>
+            </div>
+            <div class="lesson-list">
+              <div class="lesson-item"><span class="lesson-num">01</span> Thinking Computationally: Why Python is the language of AI.</div>
+              <div class="lesson-item"><span class="lesson-num">02</span> Syntax & Semantics: Variables, Data Types, formatting text.</div>
+              <div class="lesson-item"><span class="lesson-num">03</span> Control Flow: if/else logic and for loops.</div>
+              <div class="lesson-item"><span class="lesson-num">04</span> Functions: Abstracting code into reusable blocks.</div>
+              <div class="lesson-item"><span class="lesson-num">05</span> Practical: Build a programmatic greeting system.</div>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="module-block">
+            <div class="module-header">
+              <span class="module-label">Lecture 1</span>
+              <h3 class="module-title">The Bridge (APIs & JSON)</h3>
+              <p class="module-tamil">ஏபிஐ மற்றும் தரவு பகுப்பாய்வு</p>
+              <span class="module-lessons"><i class="far fa-file-alt"></i> 3 Topics + Practical</span>
+            </div>
+            <div class="lesson-list">
+              <div class="lesson-item"><span class="lesson-num">01</span> Network Requests: How code talks to the internet (Client-Server model).</div>
+              <div class="lesson-item"><span class="lesson-num">02</span> The requests Library: Fetching data programmatically.</div>
+              <div class="lesson-item"><span class="lesson-num">03</span> Data Parsing: Understanding and navigating JSON structures.</div>
+              <div class="lesson-item"><span class="lesson-num">04</span> Practical: Fetch live, real-world data using a public endpoint.</div>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="module-block">
+            <div class="module-header">
+              <span class="module-label">Lecture 2</span>
+              <h3 class="module-title">The Brain (Generative AI Integration)</h3>
+              <p class="module-tamil">செயற்கை நுண்ணறிவு இணைப்பு</p>
+              <span class="module-lessons"><i class="far fa-file-alt"></i> 3 Topics + Practical</span>
+            </div>
+            <div class="lesson-list">
+              <div class="lesson-item"><span class="lesson-num">01</span> LLM Architecture: A high-level look at how Generative AI processes text.</div>
+              <div class="lesson-item"><span class="lesson-num">02</span> API Security: Best practices for handling private keys (Google Colab Secrets).</div>
+              <div class="lesson-item"><span class="lesson-num">03</span> The Gemini Connection: Authenticating and sending prompts to the AI via Python.</div>
+              <div class="lesson-item"><span class="lesson-num">04</span> Practical: Build a programmatic "Text Summarizer."</div>
+            </div>
+          </div>
+
+          <!-- Module 4 -->
+          <div class="module-block">
+            <div class="module-header">
+              <span class="module-label">Lecture 3</span>
+              <h3 class="module-title">Problem Set 0 (Final Project)</h3>
+              <p class="module-tamil">இறுதித் திட்டம் மற்றும் சான்றிதழ்</p>
+              <span class="module-lessons"><i class="far fa-file-alt"></i> 2 Topics + Final Project</span>
+            </div>
+            <div class="lesson-list">
+              <div class="lesson-item"><span class="lesson-num">01</span> The Challenge: Build an interactive Command-Line Chatbot.</div>
+              <div class="lesson-item"><span class="lesson-num">02</span> Deployment & Security: Secure your keys, save your outputs.</div>
+              <div class="lesson-item"><span class="lesson-num">03</span> Final Assignment: The Terminal Assistant 🤖</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATE SECTION -->
+  <section class="cert-section" id="certificate">
+    <div class="cert-bg-glow"></div>
+    <div class="container">
+      <div class="cert-header">
+        <h2 class="section-heading center">Verified Certificate of Completion</h2>
+        <p class="section-desc center">Earn a professional, verifiable certificate from Tamil Technology upon completing the bootcamp. Build trust and showcase your new skills to the world.</p>
+      </div>
+      
+      <div class="cert-showcase" id="certShowcase">
+        <div class="cert-badge" id="certBadge">
+          <i class="fas fa-medal"></i>
+          <span>100%<br>Verified</span>
+        </div>
+        <div class="cert-image-wrap">
+          <img src="assets/Certificate.png" alt="Certificate of Completion" class="cert-img" />
+        </div>
+      </div>
+      
+      <div class="cert-features">
+        <div class="cert-feat"><i class="fas fa-share-alt"></i> Shareable on LinkedIn</div>
+        <div class="cert-feat"><i class="fas fa-qrcode"></i> QR Code Verified</div>
+        <div class="cert-feat"><i class="fas fa-file-pdf"></i> High-Res PDF</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR SECTION -->
+  <section class="instructor-section" id="instructor">
+    <div class="container">
+      <h2 class="section-heading center">Meet Your Instructor</h2>
+      <div class="instructor-card" id="instructorCard">
+        <div class="instructor-avatar">
+          <div class="avatar-ring">
+            <img src="assets/mentor.png" alt="Krishanth G - Mentor">
+          </div>
+        </div>
+        <div class="instructor-info">
+          <p class="instructor-quote">"I will make sure that you won't just learn AI, you'll master the art of building AI assistants from scratch with code. I'll guide you step by step to think computationally, code efficiently, and integrate like a pro."</p>
+          <h3>Krishanth G</h3>
+          <p class="instructor-role">Founder, <strong>Tamil Technology</strong></p>
+          <br />
+          <a href="https://www.youtube.com/watch?v=4Pz9ZTbcSF0" target="_blank" class="yt-link" id="ytLink">
+            <i class="fab fa-youtube"></i> Tamil Technology
+          </a>
+        </div>
+      </div>
+
+      <!-- Reserve spot CTA -->
+      <div style="text-align:center;margin-top:40px;">
+        <a href="#enroll" class="btn-primary">Reserve Your Spot Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Tamil Technology" class="footer-logo" />
+          <p>Making technology accessible for every Tamil speaker.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#about">Home</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="#perks">Why Join</a>
+          <a href="#enroll">Enroll Now</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#" onclick="openCurriculumModal()">View Curriculum</a>
+          <a href="#" onclick="downloadSyllabus()">Download Syllabus</a>
+          <a href="https://www.youtube.com/watch?v=4Pz9ZTbcSF0" target="_blank">Watch Preview</a>
+          <a href="#" onclick="shareBootcamp()">Share Bootcamp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <span><i class="fab fa-youtube"></i> Tamil Technology</span>
+          <span><i class="fas fa-map-marker-alt"></i> Online (Google Meet)</span>
+          <span><i class="fas fa-calendar"></i> May 30, 2026</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tamil Technology. All rights reserved. | Instructor: Krishanth G</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CURRICULUM MODAL -->
+  <div class="modal-overlay" id="curriculumModal" onclick="closeCurriculumModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeCurriculumModal()"><i class="fas fa-times"></i></button>
+      <h2>Full Curriculum</h2>
+      <p class="modal-sub">4-Hour Live Python AI Assistant Bootcamp — Complete Syllabus</p>
+      <div class="modal-content">
+        <div class="syl-block">
+          <span class="syl-time">Hour 1 (09:00 – 10:00 AM)</span>
+          <h3><i class="fab fa-python" style="color:#f59e0b"></i> Lecture 0: The Engine (Python Fundamentals)</h3>
+          <ul><li>Thinking Computationally: Why Python is the language of AI.</li><li>Syntax & Semantics: Variables, Data Types.</li><li>Control Flow: if/else logic and for loops.</li><li>Functions: Abstracting code.</li><li>Practical: Build a programmatic greeting system.</li></ul>
+        </div>
+        <div class="syl-block">
+          <span class="syl-time">Hour 2 (10:00 – 11:00 AM)</span>
+          <h3><i class="fas fa-network-wired" style="color:#e91e63"></i> Lecture 1: The Bridge (APIs & JSON)</h3>
+          <ul><li>Network Requests (Client-Server model)</li><li>The requests Library</li><li>Data Parsing (JSON structures)</li><li>Practical: Fetch live, real-world data</li></ul>
+        </div>
+        <div class="syl-block">
+          <span class="syl-time">Hour 3 (11:00 AM – 12:00 PM)</span>
+          <h3><i class="fas fa-brain" style="color:#22c55e"></i> Lecture 2: The Brain (Generative AI Integration)</h3>
+          <ul><li>LLM Architecture Overview</li><li>API Security & Colab Secrets</li><li>The Gemini Connection</li><li>Practical: Build a "Text Summarizer"</li></ul>
+        </div>
+        <div class="syl-block">
+          <span class="syl-time">Hour 4 (12:00 – 01:15 PM)</span>
+          <h3><i class="fas fa-terminal" style="color:#3b82f6"></i> Lecture 3: Problem Set 0</h3>
+          <ul><li>The Challenge: Build a Command-Line Chatbot</li><li>Deployment & Security</li><li>Final Assignment: The Terminal Assistant 🤖</li></ul>
+        </div>
+      </div>
+      <a href="register.html" class="btn-primary"><i class="fas fa-rocket"></i> Register Now — ₹49</a>
+    </div>
+  </div>
+
+
+
+  <!-- SCROLL TOP -->
+  <button class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
