@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Final Project | Tamil Technology</title>
+  <meta name="description" content="Submit your Python AI Assistant final project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Global Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Solid Container */
+    .split-layout {
+      display: flex;
+      width: 100%;
+      max-width: 1100px;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      min-height: 800px;
+    }
+
+    /* Left Panel: Clean Slate */
+    .split-left {
+      flex: 1;
+      background: #0f172a;
+      color: #fff;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    .brand img { height: 32px; filter: brightness(0) invert(1); }
+    .brand span { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.2px; }
+
+    .left-content h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+    .left-content h1 span { color: #6366f1; }
+    .left-content p { font-size: 1.05rem; color: #94a3b8; line-height: 1.6; margin-bottom: 40px; }
+    
+    .certificate-preview {
+      width: 100%; max-width: 280px;
+      border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Right Panel: Crisp White Form */
+    .split-right {
+      flex: 1.3;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .split-right::-webkit-scrollbar { width: 6px; }
+    .split-right::-webkit-scrollbar-track { background: transparent; }
+    .split-right::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+    .register-header { text-align: left; margin-bottom: 32px; }
+    .register-header h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; color: #1e293b; letter-spacing: -0.5px; }
+    .register-header p { font-size: 0.95rem; color: #64748b; }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #64748b; font-weight: 600; font-size: 0.85rem;
+      margin-bottom: 32px; transition: color 0.2s;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #0f172a; }
+
+    /* Clean Form Styles */
+    .custom-form { display: flex; flex-direction: column; gap: 24px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: #334155; }
+    
+    .input-wrapper { position: relative; display: flex; align-items: center; }
+    .input-wrapper i { position: absolute; left: 14px; top: 14px; color: #94a3b8; font-size: 1rem; }
+    .input-wrapper input, .input-wrapper textarea {
+      width: 100%;
+      padding: 12px 12px 12px 42px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #0f172a;
+      background: #ffffff;
+      transition: all 0.2s;
+    }
+    .input-wrapper textarea { min-height: 80px; resize: vertical; }
+    .input-wrapper input:focus, .input-wrapper textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    /* Polished Star Rating */
+    .star-rating-container { display: flex; gap: 4px; direction: rtl; justify-content: flex-end; }
+    .star-rating-container input { display: none; }
+    .star-rating-container label {
+      font-size: 1.6rem; color: #e2e8f0; cursor: pointer; transition: color 0.2s;
+    }
+    .star-rating-container label:hover,
+    .star-rating-container label:hover ~ label,
+    .star-rating-container input:checked ~ label {
+      color: #eab308;
+    }
+
+    /* Checkbox Group - Radio Card Style */
+    .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+    .checkbox-item {
+      display: flex; align-items: center; gap: 12px; cursor: pointer;
+      background: #ffffff; border: 1px solid #cbd5e1; padding: 10px 14px; border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .checkbox-item:hover { border-color: #94a3b8; }
+    .checkbox-item:has(input:checked) { border-color: #6366f1; background: #f5f8ff; }
+    .checkbox-item input { width: 16px; height: 16px; accent-color: #6366f1; cursor: pointer; }
+    .checkbox-item span { font-size: 0.9rem; font-weight: 500; color: #334155; }
+
+    /* Submit Button - Solid Professional */
+    .btn-submit-form {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #0f172a;
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+    .btn-submit-form:hover { background: #334155; }
+    .btn-submit-form:disabled { background: #94a3b8; cursor: not-allowed; }
+
+    .form-footer-note { text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 8px; }
+
+    /* Success Screen */
+    #successScreen { display: none; text-align: center; padding: 80px 20px; }
+    .success-icon { font-size: 4rem; color: #10b981; margin-bottom: 20px; }
+    #successScreen h2 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: #0f172a; }
+    #successScreen p { color: #475569; margin-bottom: 32px; line-height: 1.6; font-size: 1rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0f172a; color: #fff;
+      padding: 12px 28px; border-radius: 8px;
+      font-weight: 600; transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-home:hover { background: #334155; }
+
+    @media (max-width: 992px) {
+      .split-layout { flex-direction: column; min-height: auto; }
+      .split-left { padding: 40px 24px; border-radius: 16px 16px 0 0; }
+      .split-right { padding: 40px 24px; }
+      .left-content h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="split-layout">
+    <!-- Left Panel -->
+    <div class="split-left">
+      <div class="brand">
+        <img src="../assets/logo.png" alt="Tamil Technology" onerror="this.src='https://dummyimage.com/200x50/0f172a/ffffff&text=Tamil+Technology'" />
+        <span>Tamil Technology</span>
+      </div>
+      <div class="left-content">
+        <h1>You Built an<br /><span>AI Assistant!</span></h1>
+        <p>Congratulations on completing the bootcamp! Submit your final Google Colab project below. Once verified, your official certificate will be generated.</p>
+        <div style="margin-top:20px;">
+          <img src="../assets/certificate.png" alt="Certificate Preview" class="certificate-preview" onerror="this.src='https://dummyimage.com/300x200/ffffff/8b5cf6&text=Certificate+Preview'" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel (Form) -->
+    <div class="split-right">
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      
+      <div id="formScreen">
+        <div class="register-header">
+          <h2>Final Project Submission</h2>
+          <p>We'd also love to hear your feedback on the bootcamp!</p>
+        </div>
+
+        <form class="custom-form" id="submitForm" onsubmit="handleSubmission(event)">
+          
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name (As For Certificate) *</label>
+            <div class="input-wrapper">
+              <input type="text" id="fullName" placeholder="Enter your full name" required />
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+
+          <!-- Email Address -->
+          <div class="form-group">
+            <label for="emailAddr">Registered Email Address *</label>
+            <div class="input-wrapper">
+              <input type="email" id="emailAddr" placeholder="your@email.com" required />
+              <i class="fas fa-envelope"></i>
+            </div>
+          </div>
+
+          <!-- Colab Link -->
+          <div class="form-group">
+            <label for="colabLink">Google Colab Project URL *</label>
+            <div class="input-wrapper">
+              <input type="url" id="colabLink" placeholder="https://colab.research.google.com/..." required />
+              <i class="fas fa-link"></i>
+            </div>
+          </div>
+
+          <!-- Rate Bootcamp (Stars) -->
+          <div class="form-group" style="margin-top:10px;">
+            <label>Rate the Bootcamp *</label>
+            <div class="star-rating-container" id="bootcampRating">
+              <input type="radio" id="bc-star5" name="bootcampRate" value="5 Star" required /><label for="bc-star5" title="5 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="bc-star4" name="bootcampRate" value="4 Star" /><label for="bc-star4" title="4 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="bc-star3" name="bootcampRate" value="3 Star" /><label for="bc-star3" title="3 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="bc-star2" name="bootcampRate" value="2 Star" /><label for="bc-star2" title="2 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="bc-star1" name="bootcampRate" value="1 Star" /><label for="bc-star1" title="1 Star"><i class="fas fa-star"></i></label>
+            </div>
+          </div>
+
+          <!-- Favorite Part -->
+          <div class="form-group">
+            <label for="favoritePart">What was your favorite part of building your AI Assistant?</label>
+            <div class="input-wrapper">
+              <textarea id="favoritePart" placeholder="Tell us what you enjoyed most..."></textarea>
+              <i class="fas fa-heart"></i>
+            </div>
+          </div>
+
+          <!-- Teach Next (Checkboxes) -->
+          <div class="form-group">
+            <label>What should Tamil Technology teach next? *</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="checkbox" name="teachNext" value="Advanced Python & APIs" />
+                <span>Advanced Python & APIs</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="teachNext" value="Agentic Ai" />
+                <span>Agentic AI</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="teachNext" value="Web Development (HTML,CSS & JS)" />
+                <span>Web Development (HTML, CSS & JS)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Rate Teaching (Stars) -->
+          <div class="form-group" style="margin-top:10px;">
+            <label>How would you rate Krishanth's teaching style? *</label>
+            <div class="star-rating-container" id="teachingRating">
+              <input type="radio" id="tc-star5" name="teachingRate" value="5 Star" required /><label for="tc-star5" title="5 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="tc-star4" name="teachingRate" value="4 Star" /><label for="tc-star4" title="4 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="tc-star3" name="teachingRate" value="3 Star" /><label for="tc-star3" title="3 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="tc-star2" name="teachingRate" value="2 Star" /><label for="tc-star2" title="2 Stars"><i class="fas fa-star"></i></label>
+              <input type="radio" id="tc-star1" name="teachingRate" value="1 Star" /><label for="tc-star1" title="1 Star"><i class="fas fa-star"></i></label>
+            </div>
+          </div>
+
+          <!-- Mentor Feedback -->
+          <div class="form-group">
+            <label for="mentorFeedback">What did the mentor explain really well, and what could be improved?</label>
+            <div class="input-wrapper">
+              <textarea id="mentorFeedback" placeholder="Your feedback helps us improve..."></textarea>
+              <i class="fas fa-comment-dots"></i>
+            </div>
+          </div>
+
+          <!-- Permission to Feature -->
+          <div class="form-group">
+            <label>Permission to Feature *</label>
+            <label class="checkbox-item" style="background:#f1f5f9; border-color:#cbd5e1;">
+              <input type="checkbox" id="featurePerm" value="I give Tamil Technology permission to feature my project or feedback on social media/YouTube." required />
+              <span style="font-size:0.85rem; font-weight:500;">I give Tamil Technology permission to feature my project or feedback on social media/YouTube.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-submit-form" id="submitBtn">
+            Submit Project & Feedback <i class="fas fa-paper-plane"></i>
+          </button>
+          <p class="form-footer-note"><i class="fas fa-shield-alt"></i> Your data is secure with Tamil Technology</p>
+        </form>
+      </div>
+
+      <div id="successScreen">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2>Project Submitted!</h2>
+        <p>Thank you for submitting your final project and feedback! We will verify your work and generate your Verified Certificate shortly.</p>
+        <a href="../index.html" class="btn-home">Return to Home <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function handleSubmission(e) {
+      e.preventDefault();
+      
+      // Ensure at least one checkbox is checked for "Teach Next" since it's marked required in Google form
+      const teachNextChecked = document.querySelectorAll('input[name="teachNext"]:checked');
+      if (teachNextChecked.length === 0) {
+        alert("Please select at least one topic for 'What should Tamil Technology teach next?'");
+        return;
+      }
+
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      btn.disabled = true;
+
+      const data = new URLSearchParams();
+      
+      // Map to exact Google Forms entry IDs
+      data.append('entry.441176518', document.getElementById('fullName').value);
+      data.append('entry.211475639', document.getElementById('emailAddr').value);
+      data.append('entry.2079546422', document.getElementById('colabLink').value);
+      
+      // Get selected Radio Ratings
+      const bootcampRating = document.querySelector('input[name="bootcampRate"]:checked').value;
+      data.append('entry.333248182', bootcampRating);
+      
+      const teachingRating = document.querySelector('input[name="teachingRate"]:checked').value;
+      data.append('entry.2141184067', teachingRating);
+      
+      // Textareas
+      data.append('entry.1113416376', document.getElementById('favoritePart').value);
+      data.append('entry.1473447814', document.getElementById('mentorFeedback').value);
+
+      // Checkboxes (Append each selected value)
+      teachNextChecked.forEach(checkbox => {
+        data.append('entry.2004289918', checkbox.value);
+      });
+
+      // Permission Checkbox
+      const permissionBox = document.getElementById('featurePerm');
+      if(permissionBox.checked) {
+        data.append('entry.1497529880', permissionBox.value);
+      }
+
+      const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLSe0Ig9GeWq82MDEBMYPkzPY0uV4gp0WQsBOLWfHDlISaVzHkQ/formResponse';
+
+      fetch(googleFormURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      }).then(() => {
+        document.getElementById('formScreen').style.display = 'none';
+        document.getElementById('successScreen').style.display = 'block';
+        window.scrollTo(0, 0);
+      }).catch(err => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        alert('A network error occurred. Please try submitting again.');
+      });
+    }
+  </script>
+</body>
+</html>
